@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -27,6 +28,12 @@ import com.humbertoyusta.xpensetrack.types.TransactionType
 fun BalanceOverview(balance: String, income: String, expenses: String) {
     Column(
         modifier = Modifier
+            .shadow(
+                elevation = 6.dp,
+                shape = RoundedCornerShape(36.dp),
+                clip = false,
+            )
+            .padding(bottom = 2.dp, end = 2.dp)
             .clip(RoundedCornerShape(36.dp))
             .background(
                 brush = Brush.linearGradient(

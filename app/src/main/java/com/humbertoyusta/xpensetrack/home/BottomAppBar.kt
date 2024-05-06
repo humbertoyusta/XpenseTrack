@@ -18,6 +18,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.unit.dp
 
@@ -62,6 +63,11 @@ fun BottomAppBar() {
                 .align(Alignment.TopCenter)
                 .offset(y = (-28).dp)
                 .size(72.dp)
+                .shadow(
+                    elevation = 6.dp,
+                    shape = RoundedCornerShape(36.dp),
+                    clip = false
+                )
         ) {
             Icon(
                 imageVector = Icons.Rounded.Add,
