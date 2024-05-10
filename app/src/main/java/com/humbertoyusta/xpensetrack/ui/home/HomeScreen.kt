@@ -1,4 +1,4 @@
-package com.humbertoyusta.xpensetrack.home
+package com.humbertoyusta.xpensetrack.home.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -15,11 +16,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.humbertoyusta.xpensetrack.types.TransactionType
+import com.humbertoyusta.xpensetrack.data.Transaction
+import com.humbertoyusta.xpensetrack.data.enums.TransactionType
 import com.humbertoyusta.xpensetrack.ui.theme.XpenseTrackTheme
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(transactions: List<Transaction>) {
     XpenseTrackTheme {
         Scaffold(
             bottomBar = { BottomAppBar() }
@@ -31,7 +33,12 @@ fun HomeScreen() {
                 color = MaterialTheme.colorScheme.background
             ) {
                 Column(
-                    modifier = Modifier.padding(start = 32.dp, end = 32.dp, top = 40.dp)
+                    modifier = Modifier.padding(
+                        start = 32.dp,
+                        end = 32.dp,
+                        top = 40.dp,
+                        bottom = 0.dp
+                    ),
                 ) {
                     BalanceOverview(
                         balance = "3000.00",
@@ -51,31 +58,21 @@ fun HomeScreen() {
                         )
                         Text(
                             text = "View all",
-                            color = MaterialTheme.colorScheme.onBackground,
+                            color = MaterialTheme.colorScheme.onSurface,
                         )
                     }
-                    Column(
+                    LazyColumn(
                         modifier = Modifier
                             .fillMaxWidth()
                     ) {
-                        TransactionItem(
-                            category = "Groceries",
-                            amount = "50.00",
-                            date = "Today",
-                            type = TransactionType.EXPENSE
-                        )
-                        TransactionItem(
-                            category = "Travel",
-                            amount = "100.00",
-                            date = "Yesterday",
-                            type = TransactionType.EXPENSE
-                        )
-                        TransactionItem(
-                            category = "Food",
-                            amount = "100.00",
-                            date = "Yesterday",
-                            type = TransactionType.EXPENSE
-                        )
+                        items(transactions.size) { index ->
+                            TransactionItem(
+                                category = transactions[index].category,
+                                amount = transactions[index].amount.toString(),
+                                date = transactions[index].date,
+                                type = transactions[index].type
+                            )
+                        }
                     }
                 }
             }
@@ -86,5 +83,39 @@ fun HomeScreen() {
 @Preview
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen()
+
+    val transactions = listOf(
+        Transaction(
+            category = "Groceries",
+            amount = 50.0,
+            date = "Today",
+            type = TransactionType.EXPENSE
+        ),
+        Transaction(
+            category = "Salary",
+            amount = 1000.0,
+            date = "Yesterday",
+            type = TransactionType.INCOME
+        ),
+        Transaction(
+            category = "Rent",
+            amount = 500.0,
+            date = "Yesterday",
+            type = TransactionType.EXPENSE
+        ),
+        Transaction(
+            category = "Shopping",
+            amount = 200.0,
+            date = "Yesterday",
+            type = TransactionType.EXPENSE
+        ),
+        Transaction(
+            category = "Freelance",
+            amount = 300.0,
+            date = "Yesterday",
+            type = TransactionType.INCOME
+        ),
+    )
+
+    HomeScreen(transactions = transactions)
 }
