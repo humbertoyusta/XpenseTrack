@@ -1,4 +1,4 @@
-package com.humbertoyusta.xpensetrack.home
+package com.humbertoyusta.xpensetrack.home.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -27,33 +27,34 @@ fun BottomAppBar() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .offset(y = 14.dp)
+            .background(
+                color = MaterialTheme.colorScheme.surface,
+                shape = RoundedCornerShape(topStart = 36.dp, topEnd = 36.dp)
+            )
     ) {
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
-                .background(
-                    color = MaterialTheme.colorScheme.secondary,
-                    shape = RoundedCornerShape(topStart = 36.dp, topEnd = 36.dp)
-                )
                 .fillMaxWidth()
                 .padding(
                     start = 56.dp,
                     end = 56.dp,
                     top = 20.dp,
-                    bottom = 34.dp
+                    bottom = 0.dp
                 )
         ) {
             Icon(
                 imageVector = Icons.Rounded.Home,
                 contentDescription = "Home",
-                modifier = Modifier.size(30.dp)
+                modifier = Modifier.size(30.dp),
+                tint = MaterialTheme.colorScheme.onSurface
             )
             Icon(
                 imageVector = Icons.Rounded.Settings,
                 contentDescription = "Settings",
-                modifier = Modifier.size(30.dp)
+                modifier = Modifier.size(30.dp),
+                tint = MaterialTheme.colorScheme.onSurface
             )
         }
 
@@ -83,7 +84,8 @@ fun BottomAppBar() {
                         ),
                         shape = RoundedCornerShape(36.dp)
                     )
-                    .padding(14.dp)
+                    .padding(14.dp),
+                tint = MaterialTheme.colorScheme.onSecondary
             )
         }
     }
