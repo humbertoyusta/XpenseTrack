@@ -1,28 +1,36 @@
 package com.humbertoyusta.xpensetrack.ui.theme
 
 import android.app.Activity
-import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
+
+    // Primary colors
     primary = PurpleMain,
-    secondary = PurpleGrey40,
-    tertiary = Pink40,
-    background = BackgroundGray,
     onPrimary = Color.White,
+
+    // Background colors
+    background = BackgroundGray,
+    onBackground = Color.Black,
+    surface = Color.White,
+    onSurface = Gray,
+
+    // Secondary colors
+    secondary = PurpleMainDiscolored,
     onSecondary = LightGray,
+
+    // Tertiary colors
+    tertiary = LightPurple,
+    onTertiary = Color.White,
 
     /* Other default colors to override
     surface = Color(0xFFFFFBFE),
@@ -34,12 +42,24 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 private val LightColorScheme = lightColorScheme(
+
+    // Primary colors
     primary = PurpleMain,
-    secondary = PurpleGrey40,
-    tertiary = Pink40,
-    background = BackgroundGray,
     onPrimary = Color.White,
-    onSecondary = LightGray,
+
+    // Background colors
+    background = BackgroundGray,
+    onBackground = Color.Black,
+    surface = Color.White,
+    onSurface = Gray,
+
+    // Secondary colors
+    secondary = PurpleMainDiscolored,
+    onSecondary = Color.White,
+
+    // Tertiary colors
+    tertiary = LightPurple,
+    onTertiary = Color.White,
 
     /* Other default colors to override
     surface = Color(0xFFFFFBFE),
@@ -58,11 +78,6 @@ fun XpenseTrackTheme(
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
