@@ -25,7 +25,6 @@ import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.data.enums.TransactionCategory
 import com.humbertoyusta.xpensetrack.data.enums.TransactionType
 import com.humbertoyusta.xpensetrack.ui.shared_components.MainButton
-import java.util.Date
 
 @Composable
 fun AddTransactionScreen() {
@@ -36,7 +35,6 @@ fun AddTransactionScreen() {
         remember { mutableStateOf(TransactionType.EXPENSE) }
     val transactionCategory: MutableState<TransactionCategory?> =
         remember { mutableStateOf(null) }
-    val date: MutableState<Date?> = remember { mutableStateOf(null) }
 
     Scaffold(
         topBar = { TopBar() },
