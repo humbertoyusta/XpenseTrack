@@ -14,10 +14,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.data.Transaction
-import com.humbertoyusta.xpensetrack.data.enums.TransactionType
 import com.humbertoyusta.xpensetrack.ui.theme.XpenseTrackTheme
 
 @Composable
@@ -78,44 +76,4 @@ fun HomeScreen(transactions: List<Transaction>) {
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun HomeScreenPreview() {
-
-    val transactions = listOf(
-        Transaction(
-            category = "Groceries",
-            amount = 50.0,
-            date = "Today",
-            type = TransactionType.EXPENSE
-        ),
-        Transaction(
-            category = "Salary",
-            amount = 1000.0,
-            date = "Yesterday",
-            type = TransactionType.INCOME
-        ),
-        Transaction(
-            category = "Rent",
-            amount = 500.0,
-            date = "Yesterday",
-            type = TransactionType.EXPENSE
-        ),
-        Transaction(
-            category = "Shopping",
-            amount = 200.0,
-            date = "Yesterday",
-            type = TransactionType.EXPENSE
-        ),
-        Transaction(
-            category = "Freelance",
-            amount = 300.0,
-            date = "Yesterday",
-            type = TransactionType.INCOME
-        ),
-    )
-
-    HomeScreen(transactions = transactions)
 }

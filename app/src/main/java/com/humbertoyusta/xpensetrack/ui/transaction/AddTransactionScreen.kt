@@ -21,12 +21,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.data.enums.TransactionCategory
 import com.humbertoyusta.xpensetrack.data.enums.TransactionType
 import com.humbertoyusta.xpensetrack.ui.shared_components.MainButton
-import com.humbertoyusta.xpensetrack.ui.theme.XpenseTrackTheme
 import java.util.Date
 
 @Composable
@@ -94,13 +92,5 @@ fun AddTransactionScreen() {
                 )
             }
         }
-    }
-}
-
-@Composable
-@Preview
-fun AddTransactionScreenPreview() {
-    XpenseTrackTheme {
-        AddTransactionScreen()
     }
 }
