@@ -1,6 +1,8 @@
 package com.humbertoyusta.xpensetrack.home.ui
 
+import android.content.Intent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -18,12 +20,17 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.humbertoyusta.xpensetrack.add_transaction.AddTransactionActivity
 
 @Composable
 fun BottomAppBar() {
+    val context = LocalContext.current
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -69,6 +76,11 @@ fun BottomAppBar() {
                     shape = RoundedCornerShape(36.dp),
                     clip = false
                 )
+                .clip(RoundedCornerShape(36.dp))
+                .clickable {
+                    val intent = Intent(context, AddTransactionActivity::class.java)
+                    context.startActivity(intent)
+                }
         ) {
             Icon(
                 imageVector = Icons.Rounded.Add,
