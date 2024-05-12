@@ -2,39 +2,84 @@ package com.humbertoyusta.xpensetrack.ui.currency
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.humbertoyusta.xpensetrack.add_transaction.ui.TopBar
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import com.humbertoyusta.xpensetrack.R
 import com.humbertoyusta.xpensetrack.data.model.ExchangeRateResponse
+import com.humbertoyusta.xpensetrack.home.ui.BottomAppBar
 
 @Composable
 fun CurrencyScreen(exchangeRates: ExchangeRateResponse?) {
     Scaffold(
-        topBar = { TopBar() }
+        bottomBar = { BottomAppBar() }
     ) { innerPadding ->
         Column(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
                 .background(color = MaterialTheme.colorScheme.background)
+                .padding(horizontal = 40.dp, vertical = 80.dp)
         ) {
-            Column {
-                Text(
-                    text = "1 EUR"
+            Row(
+                modifier = Modifier
+                    .padding(horizontal = 24.dp)
+                    .background(
+                        color = MaterialTheme.colorScheme.surface,
+                        shape = RoundedCornerShape(50),
+                    )
+                    .fillMaxWidth()
+                    .padding(horizontal = 28.dp, vertical = 16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+
+                Icon(
+                    painter = painterResource(id = R.drawable.baseline_euro_symbol),
+                    contentDescription = stringResource(R.string.euro_symbol),
                 )
-                Text(
-                    text = "Equivalences to"
-                )
-                Text(text = exchangeRates?.conversion_rates?.USD?.toString() ?: "Loading...")
-                Text(text = exchangeRates?.conversion_rates?.JPY?.toString() ?: "Loading...")
-                Text(text = exchangeRates?.conversion_rates?.GBP?.toString() ?: "Loading...")
-                Text(text = exchangeRates?.conversion_rates?.CHF?.toString() ?: "Loading...")
+                Row(
+                    verticalAlignment = Alignment.Bottom,
+                    modifier = Modifier
+                        .padding(start = 16.dp)
+                ) {
+                    Text(
+                        text = "1",
+                        style = MaterialTheme.typography.headlineSmall,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                    Text(
+                        text = "EUR",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier
+                            .padding(
+                                bottom = 2.dp,
+                                start = 4.dp,
+                            )
+                    )
+                }
             }
+            Text(
+                text = "Is equivalent to",
+                color = MaterialTheme.colorScheme.onBackground,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier
+                    .padding(top = 32.dp),
+            )
         }
     }
 }
