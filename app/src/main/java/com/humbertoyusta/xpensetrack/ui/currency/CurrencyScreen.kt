@@ -19,6 +19,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.R
+import com.humbertoyusta.xpensetrack.data.enums.Currency
 import com.humbertoyusta.xpensetrack.data.model.ExchangeRateResponse
 import com.humbertoyusta.xpensetrack.home.ui.BottomAppBar
 
@@ -79,6 +80,26 @@ fun CurrencyScreen(exchangeRates: ExchangeRateResponse?) {
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
                     .padding(top = 32.dp),
+            )
+            CurrencyRow(
+                iconDrawableId = R.drawable.round_attach_money,
+                currencyCode = Currency.USD.name,
+                exchangeRate = exchangeRates?.conversion_rates?.USD,
+            )
+            CurrencyRow(
+                iconDrawableId = R.drawable.round_currency_pound,
+                currencyCode = Currency.GBP.name,
+                exchangeRate = exchangeRates?.conversion_rates?.GBP,
+            )
+            CurrencyRow(
+                iconDrawableId = R.drawable.round_currency_franc,
+                currencyCode = Currency.CHF.name,
+                exchangeRate = exchangeRates?.conversion_rates?.CHF,
+            )
+            CurrencyRow(
+                iconDrawableId = R.drawable.round_currency_yen,
+                currencyCode = Currency.JPY.name,
+                exchangeRate = exchangeRates?.conversion_rates?.JPY,
             )
         }
     }
