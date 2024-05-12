@@ -15,7 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.humbertoyusta.xpensetrack.data.Transaction
+import com.humbertoyusta.xpensetrack.data.model.Transaction
 import com.humbertoyusta.xpensetrack.ui.theme.XpenseTrackTheme
 
 @Composable
@@ -67,7 +67,7 @@ fun HomeScreen(transactions: List<Transaction>) {
                             TransactionItem(
                                 category = transactions[index].category,
                                 amount = transactions[index].amount.toString(),
-                                date = transactions[index].date,
+                                date = transactions[index].date.toString(),
                                 type = transactions[index].type
                             )
                         }

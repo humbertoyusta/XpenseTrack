@@ -24,7 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.data.enums.TransactionCategory
 import com.humbertoyusta.xpensetrack.data.enums.TransactionType
-import com.humbertoyusta.xpensetrack.ui.shared_components.MainButton
+import com.humbertoyusta.xpensetrack.ui.shared.MainButton
 
 @Composable
 fun AddTransactionScreen() {
