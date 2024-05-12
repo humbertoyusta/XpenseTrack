@@ -14,7 +14,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.rounded.Home
-import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -24,7 +23,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.humbertoyusta.xpensetrack.R
 import com.humbertoyusta.xpensetrack.add_transaction.AddTransactionActivity
 import com.humbertoyusta.xpensetrack.home.HomeActivity
 import com.humbertoyusta.xpensetrack.ui.currency.CurrencyActivity
@@ -65,7 +66,7 @@ fun BottomAppBar() {
                 tint = MaterialTheme.colorScheme.onSurface
             )
             Icon(
-                imageVector = Icons.Rounded.Settings,
+                painter = painterResource(id = R.drawable.round_currency_exchange),
                 contentDescription = "Settings",
                 modifier = Modifier
                     .size(30.dp)
