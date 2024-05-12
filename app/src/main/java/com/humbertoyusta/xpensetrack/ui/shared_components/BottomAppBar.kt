@@ -26,6 +26,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.add_transaction.AddTransactionActivity
+import com.humbertoyusta.xpensetrack.home.HomeActivity
 import com.humbertoyusta.xpensetrack.ui.currency.CurrencyActivity
 
 @Composable
@@ -55,7 +56,12 @@ fun BottomAppBar() {
             Icon(
                 imageVector = Icons.Rounded.Home,
                 contentDescription = "Home",
-                modifier = Modifier.size(30.dp),
+                modifier = Modifier
+                    .size(30.dp)
+                    .clickable {
+                        val intent = Intent(context, HomeActivity::class.java)
+                        context.startActivity(intent)
+                    },
                 tint = MaterialTheme.colorScheme.onSurface
             )
             Icon(
