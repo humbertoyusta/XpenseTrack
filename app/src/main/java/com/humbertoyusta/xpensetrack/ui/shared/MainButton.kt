@@ -1,4 +1,4 @@
-package com.humbertoyusta.xpensetrack.ui.shared_components
+package com.humbertoyusta.xpensetrack.ui.shared
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
