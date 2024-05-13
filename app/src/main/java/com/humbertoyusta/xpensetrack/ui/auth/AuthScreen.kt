@@ -18,6 +18,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.R
@@ -39,14 +40,14 @@ fun AuthScreen() {
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.round_currency_exchange),
-                contentDescription = "App Icon",
+                contentDescription = stringResource(R.string.app_icon),
                 modifier = Modifier
                     .size(128.dp),
                 tint = MaterialTheme.colorScheme.secondary,
             )
             Spacer(modifier = Modifier.size(4.dp))
             Text(
-                text = "Xpense Track",
+                text = stringResource(id = R.string.app_name),
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.secondary,
@@ -70,7 +71,7 @@ fun AuthScreen() {
                     elevation = CardDefaults.cardElevation(4.dp),
                 ) {
                     MainButton(
-                        text = "Log in",
+                        text = stringResource(R.string.log_in),
                         enabled = email.value.isNotEmpty() && password.value.isNotEmpty(),
                         onClick = { /*TODO*/ }
                     )
@@ -81,7 +82,7 @@ fun AuthScreen() {
                     elevation = CardDefaults.cardElevation(4.dp),
                 ) {
                     MainButton(
-                        text = "Sign up",
+                        text = stringResource(R.string.sign_up),
                         enabled = email.value.isNotEmpty() && password.value.isNotEmpty(),
                         onClick = { /*TODO*/ }
                     )

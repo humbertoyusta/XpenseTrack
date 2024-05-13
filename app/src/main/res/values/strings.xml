@@ -1,7 +1,17 @@
 <resources>
+    <!-- General -->
     <string name="app_name">Xpense Track</string>
+    <string name="app_icon">App Icon</string>
+
+    <!-- Add Transaction -->
     <string name="title_activity_add_transaction">AddTransactionActivity</string>
+
+    <!-- Currency -->
     <string name="title_activity_currency">CurrencyActivity</string>
     <string name="euro_symbol">Euro symbol</string>
+
+    <!-- Auth -->
     <string name="title_activity_auth">AuthActivity</string>
+    <string name="log_in">Log in</string>
+    <string name="sign_up">Sign up</string>
 </resources>
