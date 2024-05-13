@@ -20,10 +20,12 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun MainButton(
     text: String,
-    onClick: () -> Unit
+    enabled: Boolean,
+    onClick: () -> Unit,
 ) {
     Button(
         onClick = onClick,
+        enabled = enabled,
         contentPadding = PaddingValues(0.dp),
         modifier = Modifier
             .wrapContentSize(),

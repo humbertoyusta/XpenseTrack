@@ -24,10 +24,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.data.enums.TransactionCategory
 import com.humbertoyusta.xpensetrack.data.enums.TransactionType
+import com.humbertoyusta.xpensetrack.data.model.Transaction
 import com.humbertoyusta.xpensetrack.ui.shared.MainButton
+import java.util.Date
 
 @Composable
-fun AddTransactionScreen() {
+fun AddTransactionScreen(
+    onSave: (transaction: Transaction) -> Unit,
+) {
     val focusManager = LocalFocusManager.current
 
     val amount = remember { mutableStateOf("") }
@@ -84,8 +88,19 @@ fun AddTransactionScreen() {
                 Spacer(modifier = Modifier.height(32.dp))
                 MainButton(
                     text = "Save",
+                    enabled = amount.value.isNotEmpty() && transactionCategory.value != null,
                     onClick = {
-                        // Save transaction
+                        if (amount.value.isNotEmpty() && transactionCategory.value != null) {
+                            onSave(
+                                Transaction(
+                                    id = 0, // Auto-generate will replace this
+                                    amount = amount.value.toDouble(),
+                                    type = transactionType.value,
+                                    category = transactionCategory.value!!.name,
+                                    date = Date(),
+                                )
+                            )
+                        }
                     }
                 )
             }
