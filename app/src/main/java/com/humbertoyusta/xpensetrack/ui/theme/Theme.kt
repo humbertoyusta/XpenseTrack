@@ -16,21 +16,21 @@ private val DarkColorScheme = darkColorScheme(
 
     // Primary colors
     primary = PurpleMain,
-    onPrimary = Color.White,
+    onPrimary = LightGray,
 
     // Background colors
-    background = BackgroundGray,
-    onBackground = Color.Black,
-    surface = Color.White,
-    onSurface = Gray,
+    background = BackgroundBlack,
+    onBackground = LightGray,
+    surface = Color.Black,
+    onSurface = Color.White,
 
     // Secondary colors
-    secondary = PurpleMainDiscolored,
+    secondary = PurpleMainLighter,
     onSecondary = LightGray,
 
     // Tertiary colors
-    tertiary = LightPurple,
-    onTertiary = Color.White,
+    tertiary = PurpleMainLighter,
+    onTertiary = LightGray,
 
     /* Other default colors to override
     surface = Color(0xFFFFFBFE),
@@ -54,7 +54,7 @@ private val LightColorScheme = lightColorScheme(
     onSurface = Gray,
 
     // Secondary colors
-    secondary = PurpleMainDiscolored,
+    secondary = PurpleMainLighter,
     onSecondary = Color.White,
 
     // Tertiary colors
