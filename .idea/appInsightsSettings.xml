@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.humbertoyusta.xpensetrack" />
+                  <option name="mobileSdkAppId" value="1:552071970348:android:072adf9e847fefb7f51b89" />
+                  <option name="projectId" value="xpense-track-h" />
+                  <option name="projectNumber" value="552071970348" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
