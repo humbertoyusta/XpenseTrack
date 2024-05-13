@@ -3,4 +3,5 @@
     <string name="title_activity_add_transaction">AddTransactionActivity</string>
     <string name="title_activity_currency">CurrencyActivity</string>
     <string name="euro_symbol">Euro symbol</string>
+    <string name="title_activity_auth">AuthActivity</string>
 </resources>
