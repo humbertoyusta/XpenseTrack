@@ -17,6 +17,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.data.model.Transaction
 import com.humbertoyusta.xpensetrack.ui.theme.XpenseTrackTheme
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 @Composable
 fun HomeScreen(transactions: List<Transaction>) {
@@ -59,6 +61,7 @@ fun HomeScreen(transactions: List<Transaction>) {
                             color = MaterialTheme.colorScheme.onSurface,
                         )
                     }
+                    val dateFormatter = SimpleDateFormat("MMM dd", Locale.US)
                     LazyColumn(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -67,7 +70,7 @@ fun HomeScreen(transactions: List<Transaction>) {
                             TransactionItem(
                                 category = transactions[index].category,
                                 amount = transactions[index].amount.toString(),
-                                date = transactions[index].date.toString(),
+                                date = dateFormatter.format(transactions[index].date),
                                 type = transactions[index].type
                             )
                         }
