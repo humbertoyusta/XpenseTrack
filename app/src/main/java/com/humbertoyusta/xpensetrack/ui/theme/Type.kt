@@ -24,6 +24,9 @@ val Typography = Typography(
     ),
     headlineSmall = TextStyle(
         fontFamily = Rubik,
+        fontSize = 22.sp,
+        lineHeight = 26.sp,
+        letterSpacing = 0.5.sp
     ),
     titleLarge = TextStyle(
         fontFamily = Rubik,

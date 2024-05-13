@@ -82,7 +82,7 @@ fun AmountInput(
         placeholder = {
             Text(
                 text = "Amount",
-                style = MaterialTheme.typography.headlineSmall,
+                style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.primary,
             )
         },

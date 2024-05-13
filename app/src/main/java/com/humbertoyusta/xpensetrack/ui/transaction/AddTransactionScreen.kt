@@ -68,11 +68,10 @@ fun AddTransactionScreen(
             ) {
                 Text(
                     text = "Add Transaction",
-                    style = MaterialTheme.typography.headlineSmall,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurface
                 )
-                Spacer(modifier = Modifier.height(32.dp))
+                Spacer(modifier = Modifier.height(24.dp))
                 AmountInput(
                     amount = amount,
                     focusManager = focusManager
