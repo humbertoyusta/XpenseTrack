@@ -25,7 +25,10 @@ import com.humbertoyusta.xpensetrack.R
 import com.humbertoyusta.xpensetrack.ui.shared.MainButton
 
 @Composable
-fun AuthScreen() {
+fun AuthScreen(
+    login: (email: String, password: String) -> Unit,
+    signUp: (email: String, password: String) -> Unit
+) {
     val email = remember { mutableStateOf("") }
     val password = remember { mutableStateOf("") }
     Surface(
@@ -73,7 +76,7 @@ fun AuthScreen() {
                     MainButton(
                         text = stringResource(R.string.log_in),
                         enabled = email.value.isNotEmpty() && password.value.isNotEmpty(),
-                        onClick = { /*TODO*/ }
+                        onClick = { login(email.value, password.value) }
                     )
                 }
                 Spacer(modifier = Modifier.weight(0.1f))
@@ -84,7 +87,7 @@ fun AuthScreen() {
                     MainButton(
                         text = stringResource(R.string.sign_up),
                         enabled = email.value.isNotEmpty() && password.value.isNotEmpty(),
-                        onClick = { /*TODO*/ }
+                        onClick = { signUp(email.value, password.value) }
                     )
                 }
             }

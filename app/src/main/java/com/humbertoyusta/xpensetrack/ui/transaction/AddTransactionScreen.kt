@@ -41,7 +41,7 @@ fun AddTransactionScreen(
         remember { mutableStateOf(null) }
 
     Scaffold(
-        topBar = { TopBar() },
+        topBar = { TopBar(action = Action.Close) },
         modifier = Modifier
             .pointerInput(Unit) {
                 detectTapGestures(

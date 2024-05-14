@@ -19,21 +19,27 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.R
+import com.humbertoyusta.xpensetrack.add_transaction.ui.Action
+import com.humbertoyusta.xpensetrack.add_transaction.ui.TopBar
 import com.humbertoyusta.xpensetrack.data.enums.Currency
 import com.humbertoyusta.xpensetrack.data.model.ExchangeRateResponse
 import com.humbertoyusta.xpensetrack.home.ui.BottomAppBar
 
 @Composable
-fun CurrencyScreen(exchangeRates: ExchangeRateResponse?) {
+fun CurrencyScreen(
+    exchangeRates: ExchangeRateResponse?,
+    logOut: () -> Unit = {},
+) {
     Scaffold(
-        bottomBar = { BottomAppBar() }
+        bottomBar = { BottomAppBar() },
+        topBar = { TopBar(action = Action.LogOut, logOut = { logOut() }) }
     ) { innerPadding ->
         Column(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
                 .background(color = MaterialTheme.colorScheme.background)
-                .padding(horizontal = 40.dp, vertical = 80.dp)
+                .padding(horizontal = 40.dp, vertical = 40.dp)
         ) {
             Row(
                 modifier = Modifier

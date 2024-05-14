@@ -15,16 +15,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.humbertoyusta.xpensetrack.add_transaction.ui.Action
+import com.humbertoyusta.xpensetrack.add_transaction.ui.TopBar
 import com.humbertoyusta.xpensetrack.data.model.Transaction
 import com.humbertoyusta.xpensetrack.ui.theme.XpenseTrackTheme
 import java.text.SimpleDateFormat
 import java.util.Locale
 
 @Composable
-fun HomeScreen(transactions: List<Transaction>) {
+fun HomeScreen(
+    transactions: List<Transaction>,
+    logOut: () -> Unit = {},
+) {
     XpenseTrackTheme {
         Scaffold(
-            bottomBar = { BottomAppBar() }
+            bottomBar = { BottomAppBar() },
+            topBar = {
+                TopBar(
+                    action = Action.LogOut,
+                    logOut = { logOut() },
+                )
+            }
         ) { innerPadding ->
             Surface(
                 modifier = Modifier
@@ -36,7 +47,7 @@ fun HomeScreen(transactions: List<Transaction>) {
                     modifier = Modifier.padding(
                         start = 32.dp,
                         end = 32.dp,
-                        top = 40.dp,
+                        top = 0.dp,
                         bottom = 0.dp
                     ),
                 ) {

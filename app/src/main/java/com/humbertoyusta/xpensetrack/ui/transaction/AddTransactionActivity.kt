@@ -21,7 +21,7 @@ class AddTransactionActivity : ComponentActivity() {
                     onSave = { transaction: Transaction ->
                         transactionViewModel.insertTransaction(transaction)
                         finish()
-                    }
+                    },
                 )
             }
         }

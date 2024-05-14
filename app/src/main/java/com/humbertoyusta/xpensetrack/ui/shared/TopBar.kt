@@ -8,8 +8,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -17,10 +15,20 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.humbertoyusta.xpensetrack.R
+
+enum class Action {
+    Close,
+    LogOut,
+}
 
 @Composable
-fun TopBar() {
+fun TopBar(
+    action: Action,
+    logOut: () -> Unit = {},
+) {
     val context = LocalContext.current
     Row(
         modifier = Modifier
@@ -33,6 +41,9 @@ fun TopBar() {
         Spacer(modifier = Modifier.weight(1f))
         Button(
             onClick = {
+                if (action == Action.LogOut) {
+                    logOut()
+                }
                 (context as? Activity)?.finish()
             },
             contentPadding = PaddingValues(0.dp),
@@ -41,7 +52,13 @@ fun TopBar() {
             ),
         ) {
             Icon(
-                imageVector = Icons.Rounded.Close,
+                painter = painterResource(
+                    id = if (action == Action.Close) {
+                        R.drawable.round_close
+                    } else {
+                        R.drawable.round_logout
+                    }
+                ),
                 contentDescription = "Close",
                 tint = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier
