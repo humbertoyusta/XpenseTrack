@@ -20,6 +20,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.data.enums.TransactionType
+import com.humbertoyusta.xpensetrack.utils.displayAmount
 
 @Composable
 fun TransactionItem(category: String, amount: String, date: String, type: TransactionType) {
@@ -61,7 +62,9 @@ fun TransactionItem(category: String, amount: String, date: String, type: Transa
             horizontalAlignment = Alignment.End
         ) {
             Text(
-                text = if (type == TransactionType.INCOME) "+$amount" else "-$amount",
+                text = displayAmount(
+                    if (type == TransactionType.INCOME) amount else "-$amount"
+                ),
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.onBackground
             )

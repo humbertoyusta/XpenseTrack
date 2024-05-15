@@ -29,6 +29,7 @@ import com.humbertoyusta.xpensetrack.R
 import com.humbertoyusta.xpensetrack.data.enums.TransactionType
 import com.humbertoyusta.xpensetrack.ui.theme.Green
 import com.humbertoyusta.xpensetrack.ui.theme.Red
+import com.humbertoyusta.xpensetrack.utils.displayAmount
 
 @Composable
 fun BalanceOverview(balance: String, income: String, expenses: String) {
@@ -58,7 +59,7 @@ fun BalanceOverview(balance: String, income: String, expenses: String) {
                 color = MaterialTheme.colorScheme.onPrimary
             )
             Text(
-                text = "€$balance",
+                text = displayAmount(balance),
                 style = MaterialTheme.typography.titleLarge,
                 color = MaterialTheme.colorScheme.onPrimary
             )
@@ -106,7 +107,7 @@ fun IncomeExpensesInfo(type: TransactionType, amount: String) {
             )
             Spacer(modifier = Modifier.height(4.dp))
             Text(
-                text = "€$amount",
+                text = displayAmount(amount),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onPrimary
             )
