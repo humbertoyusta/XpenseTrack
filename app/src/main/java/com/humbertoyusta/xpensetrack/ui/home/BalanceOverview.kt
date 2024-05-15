@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.R
 import com.humbertoyusta.xpensetrack.data.enums.TransactionType
@@ -52,12 +53,12 @@ fun BalanceOverview(balance: String, income: String, expenses: String) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Total Balance",
+                text = stringResource(R.string.total_balance),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onPrimary
             )
             Text(
-                text = "$$balance",
+                text = "€$balance",
                 style = MaterialTheme.typography.titleLarge,
                 color = MaterialTheme.colorScheme.onPrimary
             )
@@ -81,7 +82,7 @@ fun IncomeExpensesInfo(type: TransactionType, amount: String) {
     ) {
         Icon(
             painter = painterResource(id = if (type == TransactionType.INCOME) R.drawable.round_arrow_upward else R.drawable.round_arrow_downward),
-            contentDescription = "Income",
+            contentDescription = stringResource(R.string.income),
             modifier = Modifier
                 .padding(4.dp)
                 .background(
@@ -96,13 +97,16 @@ fun IncomeExpensesInfo(type: TransactionType, amount: String) {
             modifier = Modifier.padding(start = 4.dp)
         ) {
             Text(
-                text = if (type == TransactionType.INCOME) "Income" else "Expenses",
+                text = if (type == TransactionType.INCOME)
+                    stringResource(R.string.income)
+                else
+                    stringResource(R.string.expenses),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onPrimary
             )
             Spacer(modifier = Modifier.height(4.dp))
             Text(
-                text = "$$amount",
+                text = "€$amount",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onPrimary
             )
