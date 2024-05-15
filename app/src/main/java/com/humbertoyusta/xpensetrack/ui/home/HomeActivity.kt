@@ -10,6 +10,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.tooling.preview.Preview
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
+import com.humbertoyusta.xpensetrack.add_transaction.TransactionActivity
 import com.humbertoyusta.xpensetrack.data.enums.TransactionType
 import com.humbertoyusta.xpensetrack.data.model.Transaction
 import com.humbertoyusta.xpensetrack.home.ui.HomeScreen
@@ -27,8 +28,15 @@ class HomeActivity : ComponentActivity() {
             HomeScreen(
                 transactions = transactions.value,
                 logOut = { logOut() },
+                onEdit = { transaction -> onEdit(transaction) },
             )
         }
+    }
+
+    private fun onEdit(transaction: Transaction) {
+        val intent = Intent(this, TransactionActivity::class.java)
+        intent.putExtra("transaction", transaction)
+        startActivity(intent)
     }
 
     private fun logOut() {
@@ -82,5 +90,9 @@ fun HomeScreenPreview() {
         ),
     )
 
-    HomeScreen(transactions = transactions)
+    HomeScreen(
+        transactions = transactions,
+        logOut = {},
+        onEdit = { _ -> }
+    )
 }

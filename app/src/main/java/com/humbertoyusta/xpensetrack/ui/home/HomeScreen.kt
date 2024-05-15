@@ -29,6 +29,7 @@ import java.util.Locale
 fun HomeScreen(
     transactions: List<Transaction>,
     logOut: () -> Unit = {},
+    onEdit: (transaction: Transaction) -> Unit,
 ) {
     XpenseTrackTheme {
         Scaffold(
@@ -91,7 +92,8 @@ fun HomeScreen(
                                 category = transactions[index].category,
                                 amount = transactions[index].amount.toString(),
                                 date = dateFormatter.format(transactions[index].date),
-                                type = transactions[index].type
+                                type = transactions[index].type,
+                                onClick = { onEdit(transactions[index]) },
                             )
                         }
                     }

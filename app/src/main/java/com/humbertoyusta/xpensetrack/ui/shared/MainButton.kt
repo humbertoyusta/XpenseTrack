@@ -22,6 +22,7 @@ fun MainButton(
     text: String,
     enabled: Boolean,
     onClick: () -> Unit,
+    isDanger: Boolean = false,
 ) {
     Button(
         onClick = onClick,
@@ -34,12 +35,20 @@ fun MainButton(
         Row(
             modifier = Modifier
                 .background(
-                    brush = Brush.linearGradient(
-                        colors = listOf(
-                            MaterialTheme.colorScheme.primary,
-                            MaterialTheme.colorScheme.secondary,
+                    brush = if (isDanger)
+                        Brush.linearGradient(
+                            colors = listOf(
+                                MaterialTheme.colorScheme.errorContainer,
+                                MaterialTheme.colorScheme.error
+                            )
                         )
-                    ),
+                    else
+                        Brush.linearGradient(
+                            colors = listOf(
+                                MaterialTheme.colorScheme.primary,
+                                MaterialTheme.colorScheme.secondary,
+                            )
+                        ),
                 )
                 .fillMaxWidth()
                 .padding(vertical = 12.dp),
@@ -48,7 +57,11 @@ fun MainButton(
             Text(
                 text = text,
                 style = MaterialTheme.typography.bodyLarge,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
+                color = if (isDanger)
+                    MaterialTheme.colorScheme.onError
+                else
+                    MaterialTheme.colorScheme.onPrimary,
             )
         }
     }

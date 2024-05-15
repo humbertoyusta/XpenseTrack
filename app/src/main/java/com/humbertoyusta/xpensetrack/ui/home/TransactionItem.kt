@@ -1,10 +1,12 @@
 package com.humbertoyusta.xpensetrack.home.ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -17,18 +19,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.humbertoyusta.xpensetrack.R
 import com.humbertoyusta.xpensetrack.data.enums.TransactionType
 import com.humbertoyusta.xpensetrack.utils.displayAmount
 
 @Composable
-fun TransactionItem(category: String, amount: String, date: String, type: TransactionType) {
+fun TransactionItem(
+    category: String,
+    amount: String,
+    date: String,
+    type: TransactionType,
+    onClick: () -> Unit
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(top = 20.dp)
             .clip(RoundedCornerShape(24.dp))
+            .clickable { onClick() }
             .background(MaterialTheme.colorScheme.surface)
             .padding(horizontal = 24.dp, vertical = 16.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -57,21 +68,34 @@ fun TransactionItem(category: String, amount: String, date: String, type: Transa
                 fontWeight = FontWeight.SemiBold
             )
         }
-        Column(
-            modifier = Modifier,
-            horizontalAlignment = Alignment.End
+        Row(
+            verticalAlignment = Alignment.Top
         ) {
-            Text(
-                text = displayAmount(
-                    if (type == TransactionType.INCOME) amount else "-$amount"
-                ),
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onBackground
-            )
-            Text(
-                text = date,
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurface,
+            Column(
+                modifier = Modifier,
+                horizontalAlignment = Alignment.End
+            ) {
+                Text(
+                    text = displayAmount(
+                        if (type == TransactionType.INCOME) amount else "-$amount"
+                    ),
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onBackground
+                )
+                Text(
+                    text = date,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurface,
+                )
+            }
+            Icon(
+                painter = painterResource(id = R.drawable.outline_edit),
+                contentDescription = "Edit",
+                modifier = Modifier
+                    .padding(start = 0.dp)
+                    .size(24.dp)
+                    .offset(x = 8.dp, y = (-4).dp)
+                    .clickable { onClick() }
             )
         }
     }
