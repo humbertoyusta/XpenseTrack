@@ -27,7 +27,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.R
-import com.humbertoyusta.xpensetrack.add_transaction.AddTransactionActivity
+import com.humbertoyusta.xpensetrack.add_transaction.TransactionActivity
 import com.humbertoyusta.xpensetrack.home.HomeActivity
 import com.humbertoyusta.xpensetrack.ui.currency.CurrencyActivity
 
@@ -118,7 +118,7 @@ fun BottomAppBar(
                 )
                 .clip(RoundedCornerShape(36.dp))
                 .clickable {
-                    val intent = Intent(context, AddTransactionActivity::class.java)
+                    val intent = Intent(context, TransactionActivity::class.java)
                     context.startActivity(intent)
                 }
         ) {

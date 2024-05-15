@@ -30,7 +30,7 @@
             android:label="@string/title_activity_currency"
             android:theme="@style/Theme.XpenseTrack" />
         <activity
-            android:name=".add_transaction.AddTransactionActivity"
+            android:name=".add_transaction.TransactionActivity"
             android:exported="false"
             android:label="@string/title_activity_add_transaction"
             android:theme="@style/Theme.XpenseTrack" />

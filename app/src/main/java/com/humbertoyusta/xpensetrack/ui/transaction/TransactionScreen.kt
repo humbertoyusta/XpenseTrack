@@ -29,7 +29,7 @@ import com.humbertoyusta.xpensetrack.ui.shared.MainButton
 import java.util.Date
 
 @Composable
-fun AddTransactionScreen(
+fun TransactionScreen(
     onSave: (transaction: Transaction) -> Unit,
 ) {
     val focusManager = LocalFocusManager.current
