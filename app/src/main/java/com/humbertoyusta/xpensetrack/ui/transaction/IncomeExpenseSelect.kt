@@ -1,4 +1,4 @@
-package com.humbertoyusta.xpensetrack.add_transaction.ui
+package com.humbertoyusta.xpensetrack.ui.transaction
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
@@ -14,8 +14,10 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.humbertoyusta.xpensetrack.R
 import com.humbertoyusta.xpensetrack.data.enums.TransactionType
 
 @Composable
@@ -54,7 +56,7 @@ fun IncomeExpenseSelect(
             contentPadding = PaddingValues(0.dp),
         ) {
             Text(
-                text = "Income",
+                text = stringResource(id = R.string.income),
                 modifier = Modifier
                     .background(
                         if (transactionType.value == TransactionType.INCOME)
@@ -79,7 +81,7 @@ fun IncomeExpenseSelect(
             contentPadding = PaddingValues(0.dp),
         ) {
             Text(
-                text = "Expense",
+                text = stringResource(id = R.string.expense),
                 modifier = Modifier
                     .background(
                         if (transactionType.value == TransactionType.EXPENSE)

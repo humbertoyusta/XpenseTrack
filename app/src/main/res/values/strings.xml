@@ -8,6 +8,7 @@
     <string name="total_balance">Total Balance</string>
     <string name="income">Income</string>
     <string name="expenses">Expenses</string>
+    <string name="expense">Expense</string>
 
     <!-- Transaction -->
     <string name="title_activity_add_transaction">AddTransactionActivity</string>
@@ -16,6 +17,8 @@
     <string name="transaction_added">Transaction added</string>
     <string name="transaction_updated">Transaction updated</string>
     <string name="transaction_deleted">Transaction deleted</string>
+    <string name="select_a_category">Select a category</string>
+    <string name="category_check_list">Category check list</string>
 
     <!-- Currency -->
     <string name="title_activity_currency">CurrencyActivity</string>
@@ -25,4 +28,9 @@
     <string name="title_activity_auth">AuthActivity</string>
     <string name="log_in">Log in</string>
     <string name="sign_up">Sign up</string>
+
+    <!-- Misc -->
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="amount">Amount</string>
 </resources>

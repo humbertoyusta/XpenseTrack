@@ -1,4 +1,4 @@
-package com.humbertoyusta.xpensetrack.add_transaction.ui
+package com.humbertoyusta.xpensetrack.ui.transaction
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -27,6 +27,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
@@ -64,7 +65,7 @@ fun CategorySelect(
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.round_checklist),
-                    contentDescription = "Category check list",
+                    contentDescription = stringResource(R.string.category_check_list),
                     tint = MaterialTheme.colorScheme.surface,
                     modifier = Modifier
                         .padding(vertical = 14.dp)
@@ -78,7 +79,7 @@ fun CategorySelect(
                 Spacer(modifier = Modifier.width(16.dp))
                 Text(
                     text = if (transactionCategory.value == null)
-                        "Select a category"
+                        stringResource(R.string.select_a_category)
                     else
                         transactionCategory.value!!.name
                             .lowercase()

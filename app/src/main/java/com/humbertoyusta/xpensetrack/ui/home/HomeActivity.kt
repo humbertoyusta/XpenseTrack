@@ -10,12 +10,13 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.tooling.preview.Preview
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
-import com.humbertoyusta.xpensetrack.add_transaction.TransactionActivity
 import com.humbertoyusta.xpensetrack.data.enums.TransactionType
 import com.humbertoyusta.xpensetrack.data.model.Transaction
 import com.humbertoyusta.xpensetrack.home.ui.HomeScreen
 import com.humbertoyusta.xpensetrack.ui.auth.AuthActivity
 import com.humbertoyusta.xpensetrack.ui.shared.TransactionViewModel
+import com.humbertoyusta.xpensetrack.ui.transaction.TransactionActivity
+import com.humbertoyusta.xpensetrack.utils.TRANSACTION_KEY
 import java.util.Date
 
 class HomeActivity : ComponentActivity() {
@@ -35,7 +36,7 @@ class HomeActivity : ComponentActivity() {
 
     private fun onEdit(transaction: Transaction) {
         val intent = Intent(this, TransactionActivity::class.java)
-        intent.putExtra("transaction", transaction)
+        intent.putExtra(TRANSACTION_KEY, transaction)
         startActivity(intent)
     }
 

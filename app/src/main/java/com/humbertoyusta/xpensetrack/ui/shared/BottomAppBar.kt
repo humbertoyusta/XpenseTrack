@@ -27,9 +27,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.R
-import com.humbertoyusta.xpensetrack.add_transaction.TransactionActivity
 import com.humbertoyusta.xpensetrack.home.HomeActivity
 import com.humbertoyusta.xpensetrack.ui.currency.CurrencyActivity
+import com.humbertoyusta.xpensetrack.ui.transaction.TransactionActivity
 
 enum class Activity {
     HOME, CURRENCY

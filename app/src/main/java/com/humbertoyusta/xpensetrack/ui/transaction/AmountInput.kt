@@ -1,4 +1,4 @@
-package com.humbertoyusta.xpensetrack.add_transaction.ui
+package com.humbertoyusta.xpensetrack.ui.transaction
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
@@ -81,7 +81,7 @@ fun AmountInput(
         ),
         placeholder = {
             Text(
-                text = "Amount",
+                text = stringResource(R.string.amount),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.primary,
             )

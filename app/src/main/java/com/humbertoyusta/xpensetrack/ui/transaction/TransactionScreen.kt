@@ -1,4 +1,4 @@
-package com.humbertoyusta.xpensetrack.add_transaction.ui
+package com.humbertoyusta.xpensetrack.ui.transaction
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
@@ -27,6 +27,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.R
+import com.humbertoyusta.xpensetrack.add_transaction.ui.Action
+import com.humbertoyusta.xpensetrack.add_transaction.ui.TopBar
 import com.humbertoyusta.xpensetrack.data.enums.TransactionCategory
 import com.humbertoyusta.xpensetrack.data.enums.TransactionType
 import com.humbertoyusta.xpensetrack.data.model.Transaction
@@ -117,7 +119,7 @@ fun TransactionScreen(
                 when (transactionScreenMode) {
                     TransactionScreenMode.ADD ->
                         MainButton(
-                            text = "Save",
+                            text = stringResource(R.string.save),
                             enabled = amount.value.isNotEmpty() && transactionCategory.value != null,
                             onClick = {
                                 if (amount.value.isNotEmpty() && transactionCategory.value != null) {
@@ -141,7 +143,7 @@ fun TransactionScreen(
                                 elevation = CardDefaults.cardElevation(4.dp),
                             ) {
                                 MainButton(
-                                    text = "Save",
+                                    text = stringResource(id = R.string.save),
                                     enabled = amount.value.isNotEmpty() && transactionCategory.value != null,
                                     onClick = {
                                         onEdit(
@@ -160,7 +162,7 @@ fun TransactionScreen(
                                 elevation = CardDefaults.cardElevation(4.dp),
                             ) {
                                 MainButton(
-                                    text = "Delete",
+                                    text = stringResource(R.string.delete),
                                     enabled = true,
                                     onClick = { onDelete(transaction!!) },
                                     isDanger = true
