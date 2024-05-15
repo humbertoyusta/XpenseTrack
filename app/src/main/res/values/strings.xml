@@ -9,8 +9,10 @@
     <string name="income">Income</string>
     <string name="expenses">Expenses</string>
 
-    <!-- Add Transaction -->
+    <!-- Transaction -->
     <string name="title_activity_add_transaction">AddTransactionActivity</string>
+    <string name="add_transaction">Add Transaction</string>
+    <string name="edit_transaction">Edit Transaction</string>
 
     <!-- Currency -->
     <string name="title_activity_currency">CurrencyActivity</string>
