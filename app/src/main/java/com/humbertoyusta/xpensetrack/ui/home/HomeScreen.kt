@@ -13,10 +13,13 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.humbertoyusta.xpensetrack.R
 import com.humbertoyusta.xpensetrack.add_transaction.ui.Action
 import com.humbertoyusta.xpensetrack.add_transaction.ui.TopBar
+import com.humbertoyusta.xpensetrack.data.enums.TransactionType
 import com.humbertoyusta.xpensetrack.data.model.Transaction
 import com.humbertoyusta.xpensetrack.ui.theme.XpenseTrackTheme
 import java.text.SimpleDateFormat
@@ -52,9 +55,19 @@ fun HomeScreen(
                     ),
                 ) {
                     BalanceOverview(
-                        balance = "3000.00",
-                        income = "740.50",
-                        expenses = "680.00"
+                        // sum all transactions amount
+                        balance = transactions.sumOf { t ->
+                            if (t.type == TransactionType.INCOME) t.amount
+                            else -t.amount
+                        }.toString(),
+                        income = transactions.sumOf { t ->
+                            if (t.type == TransactionType.INCOME) t.amount
+                            else 0.0
+                        }.toString(),
+                        expenses = transactions.sumOf { t ->
+                            if (t.type == TransactionType.INCOME) 0.0
+                            else -t.amount
+                        }.toString()
                     )
                     Row(
                         modifier = Modifier
@@ -63,13 +76,9 @@ fun HomeScreen(
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(
-                            text = "Transactions",
+                            text = stringResource(R.string.transactions),
                             color = MaterialTheme.colorScheme.onBackground,
                             fontWeight = FontWeight.Bold,
-                        )
-                        Text(
-                            text = "View all",
-                            color = MaterialTheme.colorScheme.onSurface,
                         )
                     }
                     val dateFormatter = SimpleDateFormat("MMM dd", Locale.US)
