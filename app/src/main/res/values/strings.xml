@@ -23,14 +23,17 @@
     <!-- Currency -->
     <string name="title_activity_currency">CurrencyActivity</string>
     <string name="euro_symbol">Euro symbol</string>
+    <string name="is_equivalent_to">Is equivalent to</string>
 
     <!-- Auth -->
     <string name="title_activity_auth">AuthActivity</string>
     <string name="log_in">Log in</string>
     <string name="sign_up">Sign up</string>
+    <string name="log_out">Log out</string>
 
     <!-- Misc -->
     <string name="save">Save</string>
     <string name="delete">Delete</string>
     <string name="amount">Amount</string>
+    <string name="close">Close</string>
 </resources>

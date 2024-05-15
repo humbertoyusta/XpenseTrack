@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
-import com.humbertoyusta.xpensetrack.home.HomeActivity
+import com.humbertoyusta.xpensetrack.ui.home.HomeActivity
 import com.humbertoyusta.xpensetrack.ui.theme.XpenseTrackTheme
 
 class AuthActivity : ComponentActivity() {

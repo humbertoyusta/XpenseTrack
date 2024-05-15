@@ -19,12 +19,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.R
-import com.humbertoyusta.xpensetrack.add_transaction.ui.Action
-import com.humbertoyusta.xpensetrack.add_transaction.ui.TopBar
 import com.humbertoyusta.xpensetrack.data.enums.Currency
 import com.humbertoyusta.xpensetrack.data.model.ExchangeRateResponse
-import com.humbertoyusta.xpensetrack.home.ui.Activity
-import com.humbertoyusta.xpensetrack.home.ui.BottomAppBar
+import com.humbertoyusta.xpensetrack.ui.shared.Action
+import com.humbertoyusta.xpensetrack.ui.shared.Activity
+import com.humbertoyusta.xpensetrack.ui.shared.BottomAppBar
+import com.humbertoyusta.xpensetrack.ui.shared.TopBar
 
 @Composable
 fun CurrencyScreen(
@@ -82,7 +82,7 @@ fun CurrencyScreen(
                 }
             }
             Text(
-                text = "Is equivalent to",
+                text = stringResource(R.string.is_equivalent_to),
                 color = MaterialTheme.colorScheme.onBackground,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier

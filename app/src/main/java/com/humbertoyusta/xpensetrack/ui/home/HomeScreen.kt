@@ -1,4 +1,4 @@
-package com.humbertoyusta.xpensetrack.home.ui
+package com.humbertoyusta.xpensetrack.ui.home
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,10 +17,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.R
-import com.humbertoyusta.xpensetrack.add_transaction.ui.Action
-import com.humbertoyusta.xpensetrack.add_transaction.ui.TopBar
 import com.humbertoyusta.xpensetrack.data.enums.TransactionType
 import com.humbertoyusta.xpensetrack.data.model.Transaction
+import com.humbertoyusta.xpensetrack.home.ui.TransactionItem
+import com.humbertoyusta.xpensetrack.ui.shared.Action
+import com.humbertoyusta.xpensetrack.ui.shared.Activity
+import com.humbertoyusta.xpensetrack.ui.shared.BottomAppBar
+import com.humbertoyusta.xpensetrack.ui.shared.TopBar
 import com.humbertoyusta.xpensetrack.ui.theme.XpenseTrackTheme
 import java.text.SimpleDateFormat
 import java.util.Locale

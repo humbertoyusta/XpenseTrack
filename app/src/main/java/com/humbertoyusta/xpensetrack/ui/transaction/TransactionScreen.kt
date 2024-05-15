@@ -27,12 +27,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.R
-import com.humbertoyusta.xpensetrack.add_transaction.ui.Action
-import com.humbertoyusta.xpensetrack.add_transaction.ui.TopBar
 import com.humbertoyusta.xpensetrack.data.enums.TransactionCategory
 import com.humbertoyusta.xpensetrack.data.enums.TransactionType
 import com.humbertoyusta.xpensetrack.data.model.Transaction
+import com.humbertoyusta.xpensetrack.ui.shared.Action
 import com.humbertoyusta.xpensetrack.ui.shared.MainButton
+import com.humbertoyusta.xpensetrack.ui.shared.TopBar
 import java.util.Date
 
 enum class TransactionScreenMode {

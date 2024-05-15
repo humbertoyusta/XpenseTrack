@@ -1,4 +1,4 @@
-package com.humbertoyusta.xpensetrack.home
+package com.humbertoyusta.xpensetrack.ui.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,7 +12,6 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.humbertoyusta.xpensetrack.data.enums.TransactionType
 import com.humbertoyusta.xpensetrack.data.model.Transaction
-import com.humbertoyusta.xpensetrack.home.ui.HomeScreen
 import com.humbertoyusta.xpensetrack.ui.auth.AuthActivity
 import com.humbertoyusta.xpensetrack.ui.shared.TransactionViewModel
 import com.humbertoyusta.xpensetrack.ui.transaction.TransactionActivity

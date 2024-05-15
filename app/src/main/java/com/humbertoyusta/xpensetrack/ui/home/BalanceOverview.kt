@@ -1,4 +1,4 @@
-package com.humbertoyusta.xpensetrack.home.ui
+package com.humbertoyusta.xpensetrack.ui.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

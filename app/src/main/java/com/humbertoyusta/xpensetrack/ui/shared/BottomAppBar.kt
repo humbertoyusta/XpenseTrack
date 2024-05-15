@@ -1,4 +1,4 @@
-package com.humbertoyusta.xpensetrack.home.ui
+package com.humbertoyusta.xpensetrack.ui.shared
 
 import android.content.Intent
 import androidx.compose.foundation.background
@@ -27,8 +27,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.humbertoyusta.xpensetrack.R
-import com.humbertoyusta.xpensetrack.home.HomeActivity
 import com.humbertoyusta.xpensetrack.ui.currency.CurrencyActivity
+import com.humbertoyusta.xpensetrack.ui.home.HomeActivity
 import com.humbertoyusta.xpensetrack.ui.transaction.TransactionActivity
 
 enum class Activity {
