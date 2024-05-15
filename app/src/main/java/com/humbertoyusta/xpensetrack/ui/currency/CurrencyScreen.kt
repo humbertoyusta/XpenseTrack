@@ -23,6 +23,7 @@ import com.humbertoyusta.xpensetrack.add_transaction.ui.Action
 import com.humbertoyusta.xpensetrack.add_transaction.ui.TopBar
 import com.humbertoyusta.xpensetrack.data.enums.Currency
 import com.humbertoyusta.xpensetrack.data.model.ExchangeRateResponse
+import com.humbertoyusta.xpensetrack.home.ui.Activity
 import com.humbertoyusta.xpensetrack.home.ui.BottomAppBar
 
 @Composable
@@ -31,7 +32,7 @@ fun CurrencyScreen(
     logOut: () -> Unit = {},
 ) {
     Scaffold(
-        bottomBar = { BottomAppBar() },
+        bottomBar = { BottomAppBar(selectedActivity = Activity.CURRENCY) },
         topBar = { TopBar(action = Action.LogOut, logOut = { logOut() }) }
     ) { innerPadding ->
         Column(

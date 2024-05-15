@@ -29,7 +29,7 @@ fun HomeScreen(
 ) {
     XpenseTrackTheme {
         Scaffold(
-            bottomBar = { BottomAppBar() },
+            bottomBar = { BottomAppBar(selectedActivity = Activity.HOME) },
             topBar = {
                 TopBar(
                     action = Action.LogOut,

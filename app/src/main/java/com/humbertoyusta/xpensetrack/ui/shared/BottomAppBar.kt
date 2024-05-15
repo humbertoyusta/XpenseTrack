@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -30,8 +31,14 @@ import com.humbertoyusta.xpensetrack.add_transaction.AddTransactionActivity
 import com.humbertoyusta.xpensetrack.home.HomeActivity
 import com.humbertoyusta.xpensetrack.ui.currency.CurrencyActivity
 
+enum class Activity {
+    HOME, CURRENCY
+}
+
 @Composable
-fun BottomAppBar() {
+fun BottomAppBar(
+    selectedActivity: Activity
+) {
     val context = LocalContext.current
 
     Box(
@@ -58,22 +65,42 @@ fun BottomAppBar() {
                 imageVector = Icons.Rounded.Home,
                 contentDescription = "Home",
                 modifier = Modifier
-                    .size(30.dp)
+                    .size(26.dp)
                     .clickable {
-                        val intent = Intent(context, HomeActivity::class.java)
-                        context.startActivity(intent)
-                    },
+                        if (selectedActivity != Activity.HOME) {
+                            val intent = Intent(context, HomeActivity::class.java)
+                            context.startActivity(intent)
+                        }
+                    }
+                    .background(
+                        color = if (selectedActivity == Activity.HOME)
+                            MaterialTheme.colorScheme.background
+                        else
+                            Color.Transparent,
+                        shape = RoundedCornerShape(50),
+                    )
+                    .padding(2.dp),
                 tint = MaterialTheme.colorScheme.onSurface
             )
             Icon(
                 painter = painterResource(id = R.drawable.round_currency_exchange),
                 contentDescription = "Settings",
                 modifier = Modifier
-                    .size(30.dp)
+                    .size(26.dp)
                     .clickable {
-                        val intent = Intent(context, CurrencyActivity::class.java)
-                        context.startActivity(intent)
-                    },
+                        if (selectedActivity != Activity.CURRENCY) {
+                            val intent = Intent(context, CurrencyActivity::class.java)
+                            context.startActivity(intent)
+                        }
+                    }
+                    .padding(2.dp)
+                    .background(
+                        color = if (selectedActivity == Activity.CURRENCY)
+                            MaterialTheme.colorScheme.background
+                        else
+                            Color.Transparent,
+                        shape = RoundedCornerShape(50),
+                    ),
                 tint = MaterialTheme.colorScheme.onSurface
             )
         }
