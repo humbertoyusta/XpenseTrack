@@ -12,4 +12,16 @@ class TransactionRepository(
             transactionDAO.insert(transaction)
         }
     }
+
+    fun update(transaction: Transaction) {
+        AppDatabase.databaseWriteExecutor.execute {
+            transactionDAO.update(transaction)
+        }
+    }
+
+    fun delete(transaction: Transaction) {
+        AppDatabase.databaseWriteExecutor.execute {
+            transactionDAO.delete(transaction)
+        }
+    }
 }

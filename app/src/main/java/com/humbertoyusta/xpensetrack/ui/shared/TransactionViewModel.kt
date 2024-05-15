@@ -18,4 +18,12 @@ class TransactionViewModel(
     fun insertTransaction(transaction: Transaction) {
         repository.insert(transaction)
     }
+
+    fun updateTransaction(transaction: Transaction) {
+        repository.update(transaction)
+    }
+
+    fun deleteTransaction(transaction: Transaction) {
+        repository.delete(transaction)
+    }
 }
