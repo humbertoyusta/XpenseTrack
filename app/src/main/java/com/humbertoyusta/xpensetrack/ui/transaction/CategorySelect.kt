@@ -35,7 +35,8 @@ import com.humbertoyusta.xpensetrack.data.enums.TransactionCategory
 
 @Composable
 fun CategorySelect(
-    transactionCategory: MutableState<TransactionCategory?>
+    transactionCategory: MutableState<TransactionCategory?>,
+    categories: List<TransactionCategory>,
 ) {
     var expanded by remember { mutableStateOf(false) }
 
@@ -93,7 +94,7 @@ fun CategorySelect(
             modifier = Modifier.background(MaterialTheme.colorScheme.surface),
             offset = DpOffset(x = 32.dp, y = 0.dp)
         ) {
-            TransactionCategory.entries.forEach { category ->
+            categories.forEach { category ->
                 DropdownMenuItem(
                     text = {
                         Text(text = category.name

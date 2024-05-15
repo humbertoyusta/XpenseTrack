@@ -40,6 +40,18 @@ fun AddTransactionScreen(
     val transactionCategory: MutableState<TransactionCategory?> =
         remember { mutableStateOf(null) }
 
+    val categories = if (transactionType.value == TransactionType.EXPENSE) {
+        TransactionCategory.expenseCategories()
+    } else {
+        TransactionCategory.incomeCategories()
+    }
+
+    if (transactionCategory.value != null &&
+        !categories.contains(transactionCategory.value)
+    ) {
+        transactionCategory.value = null
+    }
+
     Scaffold(
         topBar = { TopBar(action = Action.Close) },
         modifier = Modifier
@@ -82,7 +94,8 @@ fun AddTransactionScreen(
                 )
                 Spacer(modifier = Modifier.height(32.dp))
                 CategorySelect(
-                    transactionCategory = transactionCategory
+                    transactionCategory = transactionCategory,
+                    categories = categories,
                 )
                 Spacer(modifier = Modifier.height(32.dp))
                 MainButton(
