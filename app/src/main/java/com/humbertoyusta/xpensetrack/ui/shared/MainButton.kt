@@ -49,6 +49,7 @@ fun MainButton(
                                 MaterialTheme.colorScheme.secondary,
                             )
                         ),
+                    alpha = if (enabled) 1f else 0.5f,
                 )
                 .fillMaxWidth()
                 .padding(vertical = 12.dp),
