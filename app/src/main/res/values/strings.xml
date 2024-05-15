@@ -13,6 +13,9 @@
     <string name="title_activity_add_transaction">AddTransactionActivity</string>
     <string name="add_transaction">Add Transaction</string>
     <string name="edit_transaction">Edit Transaction</string>
+    <string name="transaction_added">Transaction added</string>
+    <string name="transaction_updated">Transaction updated</string>
+    <string name="transaction_deleted">Transaction deleted</string>
 
     <!-- Currency -->
     <string name="title_activity_currency">CurrencyActivity</string>
