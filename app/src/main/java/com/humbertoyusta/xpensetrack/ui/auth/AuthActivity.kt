@@ -15,6 +15,13 @@ import com.humbertoyusta.xpensetrack.ui.theme.XpenseTrackTheme
 class AuthActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if (Firebase.auth.currentUser != null) {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         setContent {
             XpenseTrackTheme {
                 AuthScreen(
