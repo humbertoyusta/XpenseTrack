@@ -20,10 +20,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -39,7 +37,7 @@ fun CategorySelect(
     transactionCategory: MutableState<TransactionCategory?>,
     categories: List<TransactionCategory>,
 ) {
-    var expanded by remember { mutableStateOf(false) }
+    val expanded = remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -47,7 +45,7 @@ fun CategorySelect(
         horizontalAlignment = Alignment.Start
     ) {
         Button(
-            onClick = { expanded = true },
+            onClick = { expanded.value = true },
             shape = RoundedCornerShape(8.dp),
             colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.surface),
             modifier = Modifier
@@ -89,8 +87,8 @@ fun CategorySelect(
             }
         }
         DropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false },
+            expanded = expanded.value,
+            onDismissRequest = { expanded.value = false },
             properties = PopupProperties(clippingEnabled = true),
             modifier = Modifier.background(MaterialTheme.colorScheme.surface),
             offset = DpOffset(x = 32.dp, y = 0.dp)
@@ -104,7 +102,7 @@ fun CategorySelect(
                     },
                     onClick = {
                         transactionCategory.value = category
-                        expanded = false
+                        expanded.value = false
                     },
                 )
             }
